@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @layer base {
+  /* Initialize theme from localStorage or system preference */
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;

@@ -14,7 +14,7 @@ import {
   Sun
 } from "lucide-react"
 import { cn } from "@/lib/utils"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 const navItems = [
   { icon: Home, label: "Home", path: "/" },
@@ -31,15 +31,36 @@ const navItems = [
 
 export function Sidebar() {
   const location = useLocation()
-  const [isDark, setIsDark] = useState(false)
+  const [isDark, setIsDark] = useState(() => {
+    if (typeof window !== "undefined") {
+      return document.documentElement.classList.contains('dark')
+    }
+    return false
+  })
+
+  useEffect(() => {
+    // Sync state with DOM on mount
+    if (typeof window !== "undefined") {
+      setIsDark(document.documentElement.classList.contains('dark'))
+    }
+  }, [])
 
   const toggleTheme = () => {
-    setIsDark(!isDark)
-    document.documentElement.classList.toggle('dark')
+    const newIsDark = !isDark
+    setIsDark(newIsDark)
+    if (typeof window !== "undefined") {
+      if (newIsDark) {
+        document.documentElement.classList.add('dark')
+        localStorage.setItem('theme', 'dark')
+      } else {
+        document.documentElement.classList.remove('dark')
+        localStorage.setItem('theme', 'light')
+      }
+    }
   }
 
   return (
-    <aside className="fixed left-0 top-0 z-40 h-screen w-64 border-r bg-card transition-all">
+    <aside className="fixed left-0 top-0 z-40 h-screen w-64 border-r bg-card transition-all hidden md:block">
       <div className="flex h-full flex-col">
         <div className="flex h-16 items-center border-b px-6">
           <Link to="/" className="text-xl font-bold bg-gradient-to-r from-[#1E3A8A] to-[#DC2626] bg-clip-text text-transparent hover:opacity-80 transition-opacity cursor-pointer">

@@ -6,16 +6,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Progress } from "@/components/ui/progress"
 import { Badge } from "@/components/ui/badge"
 import { MapContainer, TileLayer, Marker, useMapEvents } from "react-leaflet"
-import L from "leaflet"
-import { Shield, CheckCircle2, Upload, MapPin, FileText, AlertTriangle } from "lucide-react"
-
-// Fix for Leaflet icons
-delete (L.Icon.Default.prototype as any)._getIconUrl
-L.Icon.Default.mergeOptions({
-  iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon-2x.png',
-  iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon.png',
-  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',
-})
+import { Shield, CheckCircle2, Upload, MapPin, FileText } from "lucide-react"
 
 function LocationPicker({ onLocationSelect }: { onLocationSelect: (lat: number, lng: number) => void }) {
   useMapEvents({

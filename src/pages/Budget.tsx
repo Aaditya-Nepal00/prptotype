@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Doughnut, Bar, Line } from "react-chartjs-2"
-import { Download, FileText, TrendingUp, TrendingDown } from "lucide-react"
+import { Download, FileText, TrendingUp } from "lucide-react"
 
 const sectorData = {
   labels: ["Health", "Education", "Infrastructure", "Agriculture", "Energy", "Defense", "Others"],

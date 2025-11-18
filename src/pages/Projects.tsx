@@ -8,16 +8,7 @@ import { Progress } from "@/components/ui/progress"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Bar } from "react-chartjs-2"
 import { MapContainer, TileLayer, Marker, Popup, CircleMarker } from "react-leaflet"
-import L from "leaflet"
 import { Filter, Search, Eye, Calendar, DollarSign, MapPin } from "lucide-react"
-
-// Fix for Leaflet icons
-delete (L.Icon.Default.prototype as any)._getIconUrl
-L.Icon.Default.mergeOptions({
-  iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon-2x.png',
-  iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon.png',
-  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png',
-})
 
 const projects = [
   {

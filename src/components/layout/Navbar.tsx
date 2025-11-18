@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom"
 import { Menu, X } from "lucide-react"
 import { useState } from "react"
-import { cn } from "@/lib/utils"
 
 const mobileNavItems = [
   { label: "Home", path: "/" },
@@ -22,31 +21,32 @@ export function Navbar() {
   return (
     <nav className="sticky top-0 z-50 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
-        <Link to="/" className="text-xl font-bold bg-gradient-to-r from-[#1E3A8A] to-[#DC2626] bg-clip-text text-transparent">
+        <Link to="/" className="text-xl font-bold bg-gradient-to-r from-[#1E3A8A] to-[#DC2626] bg-clip-text text-transparent hover:opacity-80 transition-opacity">
           Sachet
         </Link>
         
         <div className="hidden md:flex items-center gap-6">
-          <Link to="/" className="text-sm font-medium text-muted-foreground hover:text-foreground">
+          <Link to="/" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
             Home
           </Link>
-          <Link to="/dashboard" className="text-sm font-medium text-muted-foreground hover:text-foreground">
+          <Link to="/dashboard" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
             Dashboard
           </Link>
-          <Link to="/projects" className="text-sm font-medium text-muted-foreground hover:text-foreground">
+          <Link to="/projects" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
             Projects
           </Link>
-          <Link to="/budget" className="text-sm font-medium text-muted-foreground hover:text-foreground">
+          <Link to="/budget" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
             Budget
           </Link>
-          <Link to="/report" className="text-sm font-medium text-muted-foreground hover:text-foreground">
+          <Link to="/report" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
             Report
           </Link>
         </div>
 
         <button
-          className="md:hidden"
+          className="md:hidden p-2 hover:bg-accent rounded-md transition-colors"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Toggle menu"
         >
           {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>

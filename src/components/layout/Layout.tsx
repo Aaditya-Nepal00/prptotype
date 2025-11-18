@@ -1,7 +1,6 @@
-import { Outlet } from "react-router-dom"
+import { Outlet, useLocation } from "react-router-dom"
 import { Sidebar } from "./Sidebar"
 import { Navbar } from "./Navbar"
-import { useLocation } from "react-router-dom"
 
 export function Layout() {
   const location = useLocation()
@@ -19,7 +18,7 @@ export function Layout() {
   return (
     <div className="flex min-h-screen">
       <Sidebar />
-      <main className="flex-1 ml-64">
+      <main className="flex-1 ml-0 md:ml-64">
         <Outlet />
       </main>
     </div>

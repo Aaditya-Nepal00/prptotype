@@ -9,32 +9,8 @@ import {
   MapPin
 } from "lucide-react"
 import { Bar, Line, Doughnut } from "react-chartjs-2"
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  LineElement,
-  PointElement,
-  ArcElement,
-  Title,
-  Tooltip,
-  Legend,
-} from "chart.js"
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet"
 import "leaflet/dist/leaflet.css"
-
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  LineElement,
-  PointElement,
-  ArcElement,
-  Title,
-  Tooltip,
-  Legend
-)
 
 const kpiData = [
   { label: "Ongoing Projects", value: "342", icon: FolderKanban, color: "text-blue-500", bg: "bg-blue-50 dark:bg-blue-950" },
