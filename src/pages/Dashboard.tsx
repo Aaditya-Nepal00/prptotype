@@ -5,8 +5,7 @@ import {
   CheckCircle2, 
   Clock, 
   FileText,
-  TrendingUp,
-  MapPin
+  TrendingUp
 } from "lucide-react"
 import { Bar, Line, Doughnut } from "react-chartjs-2"
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet"

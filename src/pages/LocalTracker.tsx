@@ -4,14 +4,20 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Progress } from "@/components/ui/progress"
-import { MapContainer, TileLayer, Marker, Popup, CircleMarker } from "react-leaflet"
+import { MapContainer, TileLayer, Popup, CircleMarker } from "react-leaflet"
+import type { LatLngTuple } from "leaflet"
 import { MessageSquare, Camera, Flag, Clock, Users, MapPin } from "lucide-react"
 
-const municipalities = [
+const municipalities: Array<{
+  id: number
+  name: string
+  location: LatLngTuple
+  projects: Array<{ id: number; name: string; progress: number; status: string; comments: number; photos: number }>
+}> = [
   {
     id: 1,
     name: "Kathmandu Metropolitan City",
-    location: [27.7172, 85.3240],
+    location: [27.7172, 85.3240] as LatLngTuple,
     projects: [
       { id: 1, name: "Street Lighting Project", progress: 85, status: "ongoing", comments: 23, photos: 12 },
       { id: 2, name: "Waste Management Initiative", progress: 60, status: "ongoing", comments: 45, photos: 8 },
@@ -20,7 +26,7 @@ const municipalities = [
   {
     id: 2,
     name: "Pokhara Metropolitan City",
-    location: [28.2719, 83.9718],
+    location: [28.2719, 83.9718] as LatLngTuple,
     projects: [
       { id: 3, name: "Lake Conservation Project", progress: 90, status: "ongoing", comments: 67, photos: 34 },
       { id: 4, name: "Tourism Infrastructure", progress: 45, status: "ongoing", comments: 28, photos: 15 },
@@ -29,7 +35,7 @@ const municipalities = [
   {
     id: 3,
     name: "Lalitpur Metropolitan City",
-    location: [27.6710, 85.3250],
+    location: [27.6710, 85.3250] as LatLngTuple,
     projects: [
       { id: 5, name: "Heritage Site Restoration", progress: 70, status: "ongoing", comments: 89, photos: 42 },
     ],

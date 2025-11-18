@@ -1,23 +1,36 @@
 import { useState } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Progress } from "@/components/ui/progress"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Bar } from "react-chartjs-2"
-import { MapContainer, TileLayer, Marker, Popup, CircleMarker } from "react-leaflet"
+import { MapContainer, TileLayer, Popup, CircleMarker } from "react-leaflet"
+import type { LatLngTuple } from "leaflet"
 import { Filter, Search, Eye, Calendar, DollarSign, MapPin } from "lucide-react"
 
-const projects = [
+type ProjectStatus = "ongoing" | "completed" | "delayed" | "inactive"
+
+const projects: Array<{
+  id: number
+  name: string
+  status: ProjectStatus
+  progress: number
+  budget: string
+  location: LatLngTuple
+  sector: string
+  contractor: string
+  startDate: string
+  endDate: string
+}> = [
   {
     id: 1,
     name: "Kathmandu-Bhaktapur Road Expansion",
     status: "ongoing",
     progress: 65,
     budget: "Rs. 2.5B",
-    location: [27.7172, 85.3240],
+    location: [27.7172, 85.3240] as LatLngTuple,
     sector: "Infrastructure",
     contractor: "ABC Construction",
     startDate: "2023-01-15",
@@ -29,7 +42,7 @@ const projects = [
     status: "ongoing",
     progress: 45,
     budget: "Rs. 1.8B",
-    location: [27.7172, 85.3240],
+    location: [27.7172, 85.3240] as LatLngTuple,
     sector: "Environment",
     contractor: "Green Nepal Ltd",
     startDate: "2023-03-01",
@@ -41,7 +54,7 @@ const projects = [
     status: "completed",
     progress: 100,
     budget: "Rs. 5.2B",
-    location: [28.2719, 83.9718],
+    location: [28.2719, 83.9718] as LatLngTuple,
     sector: "Infrastructure",
     contractor: "Nepal Airlines",
     startDate: "2022-01-01",
@@ -53,7 +66,7 @@ const projects = [
     status: "delayed",
     progress: 32,
     budget: "Rs. 890M",
-    location: [26.4525, 87.2718],
+    location: [26.4525, 87.2718] as LatLngTuple,
     sector: "Health",
     contractor: "Health Ministry",
     startDate: "2023-05-01",
@@ -65,7 +78,7 @@ const projects = [
     status: "ongoing",
     progress: 78,
     budget: "Rs. 3.1B",
-    location: [28.7922, 83.8770],
+    location: [28.7922, 83.8770] as LatLngTuple,
     sector: "Energy",
     contractor: "NEA Solar",
     startDate: "2023-02-15",
@@ -73,12 +86,12 @@ const projects = [
   },
 ]
 
-const statusColors = {
+const statusColors: Record<ProjectStatus, "default" | "success" | "warning" | "secondary"> = {
   ongoing: "default",
   completed: "success",
   delayed: "warning",
   inactive: "secondary",
-} as const
+}
 
 export function Projects() {
   const [searchTerm, setSearchTerm] = useState("")
