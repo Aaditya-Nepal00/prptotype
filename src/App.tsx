@@ -7,7 +7,6 @@ import { Tenders } from "@/pages/Tenders"
 import { Budget } from "@/pages/Budget"
 import { Laws } from "@/pages/Laws"
 import { ReportCorruption } from "@/pages/ReportCorruption"
-import { LocalTracker } from "@/pages/LocalTracker"
 import { News } from "@/pages/News"
 import { Account } from "@/pages/Account"
 
@@ -23,7 +22,6 @@ function App() {
           <Route path="budget" element={<Budget />} />
           <Route path="laws" element={<Laws />} />
           <Route path="report" element={<ReportCorruption />} />
-          <Route path="local-tracker" element={<LocalTracker />} />
           <Route path="news" element={<News />} />
           <Route path="account" element={<Account />} />
         </Route>

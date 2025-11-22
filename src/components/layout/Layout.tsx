@@ -19,6 +19,9 @@ export function Layout() {
     <div className="flex min-h-screen">
       <Sidebar />
       <main className="flex-1 ml-0 md:ml-64">
+        <div className="md:hidden">
+          <Navbar />
+        </div>
         <Outlet />
       </main>
     </div>

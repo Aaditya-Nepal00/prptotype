@@ -12,7 +12,7 @@ export function Landing() {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100 dark:from-slate-950 dark:to-slate-900">
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100">
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[#1E3A8A] via-[#2563EB] to-[#3B82F6] text-white">
         <div className="absolute inset-0 opacity-10">
@@ -24,22 +24,28 @@ export function Landing() {
         
         {/* Nepal Map Glow Effect */}
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="relative w-96 h-96">
-            <div className="absolute inset-0 rounded-full bg-white/20 blur-3xl animate-glow"></div>
-            <div className="absolute inset-8 rounded-full bg-white/10 blur-2xl animate-glow" style={{ animationDelay: '1s' }}></div>
+          <div className="relative w-96 h-96 group">
+            <div className="absolute inset-0 rounded-full bg-white/20 blur-3xl animate-glow group-hover:animate-none"></div>
+            <div className="absolute inset-8 rounded-full bg-white/10 blur-2xl animate-glow group-hover:animate-none" style={{ animationDelay: '1s' }}></div>
             <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 400" fill="none">
               {/* Simplified Nepal Shape */}
               <path d="M200 50 L250 80 L280 120 L290 180 L280 240 L250 280 L200 300 L150 280 L120 240 L110 180 L120 120 L150 80 Z" 
-                    stroke="white" strokeWidth="3" fill="rgba(255,255,255,0.1)" className="animate-pulse" />
+                    stroke="white" strokeWidth="3" fill="rgba(255,255,255,0.1)" className="animate-pulse group-hover:animate-none" />
             </svg>
           </div>
         </div>
 
-        <div className="relative container mx-auto px-4 py-24 md:py-32">
+        <div className="relative container mx-auto px-4 py-16 md:py-24">
           <div className="max-w-3xl mx-auto text-center space-y-8">
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight">
-              Sachet
-            </h1>
+            <div className="flex flex-col items-center justify-center w-full -mt-8 md:-mt-12">
+              <div className="flex items-center justify-center mb-4">
+                <img 
+                  src="/logoFolder/logo.png" 
+                  alt="Sachet Logo" 
+                  className="h-32 w-32 md:h-48 md:w-48 lg:h-56 lg:w-56 object-contain drop-shadow-2xl mx-auto"
+                />
+              </div>
+            </div>
             <p className="text-2xl md:text-3xl font-light text-blue-100">
               A Modern Transparency Platform for Nepali Governance
             </p>
