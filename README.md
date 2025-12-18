@@ -24,7 +24,6 @@ Nepal is at a turning point. Following the powerful GenZ-led protests, there is 
 ## 📸 visual Prototype
 
 ![Dashboard View](wapi/img1.png)
-![Budget tracking](wapi/img2.png)
 ![Project Details](wapi/img3.png)
 ![Citizen Reporting](wapi/img4.png)
 ![Laws Summary](wapi/img5.png)
