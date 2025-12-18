@@ -2,10 +2,8 @@ import { Link } from "react-router-dom"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { ArrowRight, Shield, Eye, CheckCircle, TrendingUp } from "lucide-react"
-import { useEffect, useRef } from "react"
 
 export function Landing() {
-  const videoRef = useRef<HTMLVideoElement>(null)
   const stats = [
     { label: "Active Projects", value: "1,247", icon: TrendingUp },
     { label: "Citizens Engaged", value: "45,892", icon: CheckCircle },
@@ -13,49 +11,19 @@ export function Landing() {
     { label: "Trust Score", value: "94%", icon: Shield },
   ]
 
-  useEffect(() => {
-    const video = videoRef.current
-    if (video) {
-      // Force attributes programmatically to satisfy aggressive browsers
-      video.muted = true
-      video.defaultMuted = true
-      video.setAttribute("muted", "")
-      video.setAttribute("playsinline", "")
-
-      const handlePlay = () => {
-        video.play().catch((error) => {
-          console.error("Video playback failed on interaction/load:", error)
-        })
-      }
-
-      // Try playing immediately
-      handlePlay()
-
-      // Also listen for metadata load as a backup trigger
-      video.addEventListener("loadedmetadata", handlePlay)
-      return () => video.removeEventListener("loadedmetadata", handlePlay)
-    }
-  }, [])
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100">
       {/* Hero Section */}
       <section className="relative overflow-hidden text-white min-h-[90vh] md:min-h-screen flex items-center">
         {/* Video Background */}
         <video
-          ref={videoRef}
           autoPlay
           loop
           muted
           playsInline
-          preload="auto"
-          {...({ fetchpriority: "high" } as any)}
           className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src="/heropage/sachet-bg-main.mp4" type="video/mp4" />
-          {/* Fallback gradient if video doesn't load */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#1E3A8A] via-[#2563EB] to-[#3B82F6]"></div>
-        </video>
+          src="/bg.mp4"
+        />
 
         {/* Dark Overlay Layer */}
         <div className="absolute inset-0 bg-black/60 z-10"></div>
